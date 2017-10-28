@@ -27,10 +27,10 @@ export declare class RouterExecutionContext {
     private readonly interceptorsConsumer;
     private readonly responseController;
     constructor(paramsFactory: IRouteParamsFactory, pipesContextCreator: PipesContextCreator, pipesConsumer: PipesConsumer, guardsContextCreator: GuardsContextCreator, guardsConsumer: GuardsConsumer, interceptorsContextCreator: InterceptorsContextCreator, interceptorsConsumer: InterceptorsConsumer);
-    create(instance: Controller, callback: (...args) => any, module: string, requestMethod: RequestMethod): (req: any, res: any, next: any) => Promise<any>;
+    create(instance: Controller, callback: (...args) => any, methodName: string, module: string, requestMethod: RequestMethod): (req: any, res: any, next: any) => Promise<any>;
     mapParamType(key: string): RouteParamtypes;
-    reflectCallbackMetadata(instance: Controller, callback: (...args) => any): RouteParamsMetadata;
-    reflectCallbackParamtypes(instance: Controller, callback: (...args) => any): any[];
+    reflectCallbackMetadata(instance: Controller, methodName: string): RouteParamsMetadata;
+    reflectCallbackParamtypes(instance: Controller, methodName: string): any[];
     reflectHttpStatusCode(callback: (...args) => any): number;
     getArgumentsLength(keys: string[], metadata: RouteParamsMetadata): number;
     createNullArray(length: number): any[];

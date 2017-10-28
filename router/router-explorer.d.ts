@@ -27,7 +27,7 @@ export declare class ExpressRouterExplorer implements RouterExplorer {
     exploreMethodMetadata(instance: Controller, instancePrototype: any, methodName: string): RoutePathProperties;
     applyPathsToRouterProxy(router: any, routePaths: RoutePathProperties[], instance: Controller, module: string): void;
     private applyCallbackToRouter(router, pathProperties, instance, module);
-    private createCallbackProxy(instance, callback, module, requestMethod);
+    private createCallbackProxy(instance, callback, methodName, module, requestMethod);
     private fetchRouterPath(metatype);
     private validateRoutePath(path);
 }
@@ -35,4 +35,5 @@ export interface RoutePathProperties {
     path: string;
     requestMethod: RequestMethod;
     targetCallback: RouterProxyCallback;
+    methodName: string;
 }
